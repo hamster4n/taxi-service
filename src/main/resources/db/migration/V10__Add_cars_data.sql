@@ -1,0 +1,15 @@
+insert into cars (car_id, license_plate, type_id, production_year, available, model_id) values ('1', 'EV 4578 KZ', '1', '1999', FALSE, '5');
+insert into cars (car_id, license_plate, type_id, production_year, available, model_id) values ('2', 'BA 1407 RE', '1', '2002', FALSE, '6');
+insert into cars (car_id, license_plate, type_id, production_year, available, model_id) values ('3', 'ZA 3211 MN', '1', '2003', FALSE, '7');
+insert into cars (car_id, license_plate, type_id, production_year, available, model_id) values ('4', 'ZZ 9978 MA', '1', '2000', FALSE, '1');
+insert into cars (car_id, license_plate, type_id, production_year, available, model_id) values ('5', 'QE 3421 NE', '1', '2003', FALSE, '2');
+insert into cars (car_id, license_plate, type_id, production_year, available, model_id) values ('6', 'IU 5674 UI', '2', '2012', TRUE, '4');
+insert into cars (car_id, license_plate, type_id, production_year, available, model_id) values ('7', 'AS 4312 DS', '2', '2014', TRUE, '9');
+insert into cars (car_id, license_plate, type_id, production_year, available, model_id) values ('8', 'DW 6983 NA', '2', '2015', TRUE, '9');
+insert into cars (car_id, license_plate, type_id, production_year, available, model_id) values ('9', 'ZX 1179 QA', '2', '2013', TRUE, '9');
+insert into cars (car_id, license_plate, type_id, production_year, available, model_id) values ('10', 'MN 2154 BV', '2', '2015', TRUE, '2');
+insert into cars (car_id, license_plate, type_id, production_year, available, model_id) values ('11', 'KL 4444 KL', '3', '2018', TRUE, '1');
+insert into cars (car_id, license_plate, type_id, production_year, available, model_id) values ('12', 'AS 3333 AS', '3', '2019', TRUE, '3');
+insert into cars (car_id, license_plate, type_id, production_year, available, model_id) values ('13', 'HJ 5555 HJ', '3', '2018', TRUE, '8');
+insert into cars (car_id, license_plate, type_id, production_year, available, model_id) values ('14', 'KK 7777 KK', '3', '2019', TRUE, '2');
+insert into cars (car_id, license_plate, type_id, production_year, available, model_id) values ('15', 'II 9999 II', '3', '2019', TRUE, '1');
