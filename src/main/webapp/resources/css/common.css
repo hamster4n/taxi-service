@@ -1,0 +1,23 @@
+#navigation ul
+{
+    margin: 0;
+    padding: 0;
+}
+
+#navigation ul li
+{
+    list-style-type: none;
+    display: inline;
+}
+
+#navigation li:not(:first-child):before {
+    content: " | ";
+}
+
+th {
+    text-align: center;
+}
+
+td {
+    text-align: center;
+}
