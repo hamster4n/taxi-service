@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
         session.setAttribute("userId", user.getId());
         session.setAttribute("role", user.getRole().getTitle());
         session.setAttribute("email", email);
-        resp.sendRedirect("/order");
+        resp.sendRedirect("/besttaxi/order");
     }
 
     private void emailValidation(HttpServletRequest req, HttpServletResponse resp, String email) throws ServletException, IOException {

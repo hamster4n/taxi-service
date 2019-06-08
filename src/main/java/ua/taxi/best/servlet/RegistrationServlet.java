@@ -43,7 +43,7 @@ public class RegistrationServlet extends HttpServlet {
         checkingExistenceUserInDatabase(req, resp, optionalUser);
         userService.add(email, password);
         req.setAttribute("successful_registration", "Successful registration! Now you can login!");
-        resp.sendRedirect("/login");
+        resp.sendRedirect("/besttaxi/login");
     }
 
     private void emailValidation(HttpServletRequest req, HttpServletResponse resp, String email) throws ServletException, IOException {
