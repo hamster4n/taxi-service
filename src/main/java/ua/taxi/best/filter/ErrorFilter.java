@@ -31,7 +31,7 @@ public class ErrorFilter implements Filter {
         try {
             filterChain.doFilter(req, resp);
         } catch (Throwable exc) {
-            resp.sendRedirect("/error");
+            resp.sendRedirect("/besttaxi/error");
         }
     }
 
