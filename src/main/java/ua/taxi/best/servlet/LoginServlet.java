@@ -15,12 +15,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 import static ua.taxi.best.servlet.util.Validator.isEmailValid;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
+
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 
     private UserService userService = new UserServiceImpl(new UserRepositoryImpl(DbUtil.getDataSource()));
 
@@ -48,6 +52,7 @@ public class LoginServlet extends HttpServlet {
         userService.updateLoyalty(user);
 
         HttpSession session = req.getSession();
+        session.setAttribute("currentDate", LocalDate.now().format(formatter));
         session.setAttribute("userId", user.getId());
         session.setAttribute("role", user.getRole().getTitle());
         session.setAttribute("email", email);
