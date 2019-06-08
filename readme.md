@@ -1,11 +1,11 @@
-<h2> Taxi Service
+<h3> Taxi Service
 
-<h3> Description of the project.
+**Description of the project.**
 
 System Service Taxi. The client registers in the system and can create an order for Taxi, indicating the address and type of car. The program calculates the cost of the trip depending on the distance, customer discounts and / or promotions. The system supports the Loyalty program - the discount is calculated depending on the amount of the spent amount. Promotional offers may also apply. After confirmation of the Order by the client, the System is looking for a free taxi corresponding to the type of car. After that, the Client is informed whether Taxi has been found and what is the waiting time. 
 
 
-<h3>How to start:
+**How to start:**
 
 1. Must be installed Tomcat
 2. Must be installed Maven
@@ -25,7 +25,7 @@ System Service Taxi. The client registers in the system and can create an order 
 7. File "taxi-service-1.0-SNAPSHOT.war" rename to "besttaxi.war" and deploy to tomcat.
 
 
-<h3>How to use:
+**How to use:**
 
 An unregistered user can familiarize himself with the starting information on the company's main page, view the list of available auto models, register and log in.
 
@@ -42,7 +42,7 @@ Order cars as follows:
 The user with the role "ADMIN" has access to the additional two pages: "users" and "cars". In the current version of the program on these pages all users and all machines are displayed respectively. In subsequent versions, the functionality of editing users and cars will be added.
 
 
-<h3>What technologies were used:
+**What technologies were used:**
 
 1. JSP + JSTL.
 2. Servlets.
