@@ -1,7 +1,5 @@
 package ua.taxi.best.filter;
 
-import org.apache.log4j.Logger;
-
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -17,8 +15,6 @@ import java.io.IOException;
 @WebFilter(urlPatterns = {"/users/*", "/cars/*"})
 public class UserFilter implements Filter {
 
-    private static final Logger LOGGER = Logger.getLogger(UserFilter.class);
-
     @Override
     public void init(FilterConfig filterConfig) {
     }
@@ -26,15 +22,13 @@ public class UserFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 
-        LOGGER.info("UserFilter start!");
-
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         HttpSession session = req.getSession();
         if (session != null && "ADMIN".equals(session.getAttribute("role"))) {
             filterChain.doFilter(req, resp);
         } else {
-            resp.sendRedirect("/order");
+            resp.sendRedirect("/besttaxi/order");
         }
     }
 
