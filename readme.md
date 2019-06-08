@@ -1,4 +1,4 @@
-<h3> Taxi Service
+<h3> Taxi Service</h3>
 
 **Description of the project.**
 
