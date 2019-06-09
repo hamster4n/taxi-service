@@ -15,12 +15,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 import static ua.taxi.best.servlet.util.Validator.isEmailValid;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
+
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 
     private UserService userService = new UserServiceImpl(new UserRepositoryImpl(DbUtil.getDataSource()));
 
@@ -39,10 +43,16 @@ public class LoginServlet extends HttpServlet {
         Optional<User> optionalUser = userService.findByEmail(email);
         checkingExistenceUserInDatabase(req, resp, optionalUser);
         User user = optionalUser.orElse(User.builder().build());
-        passwordComparison(req, resp, password, user);
+        if (!user.getPassword().equals(Encryptor.encrypt(password))) {
+            req.setAttribute("exception", "You entered the wrong password!");
+            RequestDispatcher dispatcher = req.getRequestDispatcher("jsp/login.jsp");
+            dispatcher.forward(req, resp);
+            return;
+        }
         userService.updateLoyalty(user);
 
         HttpSession session = req.getSession();
+        session.setAttribute("currentDate", LocalDate.now().format(formatter));
         session.setAttribute("userId", user.getId());
         session.setAttribute("role", user.getRole().getTitle());
         session.setAttribute("email", email);
@@ -54,6 +64,7 @@ public class LoginServlet extends HttpServlet {
             req.setAttribute("exception", "Your email is invalid.");
             RequestDispatcher dispatcher = req.getRequestDispatcher("jsp/registration.jsp");
             dispatcher.forward(req, resp);
+            return;
         }
     }
 
@@ -63,15 +74,7 @@ public class LoginServlet extends HttpServlet {
             req.setAttribute("exception", "There is no user with such email!");
             RequestDispatcher dispatcher = req.getRequestDispatcher("jsp/login.jsp");
             dispatcher.forward(req, resp);
-        }
-    }
-
-    private void passwordComparison(HttpServletRequest req, HttpServletResponse resp, String password,
-                                    User user) throws ServletException, IOException {
-        if (!user.getPassword().equals(Encryptor.encrypt(password))) {
-            req.setAttribute("exception", "You entered the wrong password!");
-            RequestDispatcher dispatcher = req.getRequestDispatcher("jsp/login.jsp");
-            dispatcher.forward(req, resp);
+            return;
         }
     }
 }

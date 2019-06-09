@@ -68,8 +68,9 @@
                         <div class="row">
                             <div class="col-lg-5">
                                 <div class="form-group">
-                                    <label for="date"><fmt:message key="ord.date"/></label>
-                                    <input class="form-control" id="date" name="date" value="${date}" readonly/>
+                                    <label for="currentDate"><fmt:message key="ord.date"/></label>
+                                    <input class="form-control" id="currentDate" name="currentDate"
+                                           value="${currentDate}" readonly/>
                                 </div>
                             </div>
                             <div class="col-lg-2"></div>
@@ -101,7 +102,8 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-5">
-                                <input type="submit" name="button" value="Calculate" id="calculate" class="btn btn-primary"/>
+                                <input type="submit" name="button" value="Calculate" id="calculate"
+                                       class="btn btn-primary"/>
                             </div>
                             <div class="col-lg-2"></div>
                             <div class="col-lg-5"></div>

@@ -46,13 +46,13 @@ public class OrderServlet extends HttpServlet {
         String button = req.getParameter("button");
         Long comfort_id = Long.valueOf(req.getParameter("selectComfort"));
         User user = userService.findByEmail(email).orElse(User.builder().build());
-        Order order = createOrder(req, user, comfort_id);
+        Order order = createOrder(req, user, comfort_id, session);
 
         if ("Calculate".equals(button)) {
             order = new Calculator().calculateOrder(order, comfort_id);
             session.setAttribute("objectOrder", order);
         } else if ("Order now!".equals(button)) {
-            order = (Order)session.getAttribute("objectOrder");
+            order = (Order) session.getAttribute("objectOrder");
             updateUserDistanceCount(order);
             orderService.add(order);
             req.setAttribute("order", order);
@@ -60,7 +60,6 @@ public class OrderServlet extends HttpServlet {
             dispatcher.forward(req, resp);
         }
 
-        req.setAttribute("date", order.getDate().format(formatter));
         req.setAttribute("order", order);
         req.setAttribute("comfort", comfort_id);
         RequestDispatcher dispatcher = req.getRequestDispatcher("jsp/order.jsp");
@@ -75,9 +74,10 @@ public class OrderServlet extends HttpServlet {
         userService.updateTraveledDistance(user);
     }
 
-    private Order createOrder(HttpServletRequest req, User user, Long comfort_id) {
+    private Order createOrder(HttpServletRequest req, User user, Long comfort_id, HttpSession session) {
         return Order.builder()
-                .withDate(LocalDate.parse(req.getParameter("date"), DateTimeFormatter.ofPattern("MM/dd/yyyy")))
+                .withDate(LocalDate.parse(session.getAttribute("currentDate").toString(),
+                        DateTimeFormatter.ofPattern("MM/dd/yyyy")))
                 .withStartDescription(req.getParameter("startDescription"))
                 .withFinishDescription(req.getParameter("finishDescription"))
                 .withDistance(Integer.parseInt(req.getParameter("distance")))
