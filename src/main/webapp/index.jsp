@@ -26,17 +26,17 @@
                         <td>
                             <img src="http://www.crazy.org.ua/cars/skoda/fabia.jpg" class="img-thumbnail"
                                  itemprop="image"
-                                 onError="this.src='/resources/img/image404.jpg'">
+                                 onError="this.src='${pageContext.request.contextPath}/resources/img/image404.jpg'">
                         </td>
                         <td>
                             <img src="http://www.crazy.org.ua/cars/skoda/octavia.jpg" class="img-thumbnail"
                                  itemprop="image"
-                                 onError="this.src='/resources/img/image404.jpg'">
+                                 onError="this.src='${pageContext.request.contextPath}/resources/img/image404.jpg'">
                         </td>
                         <td>
                             <img src="http://www.crazy.org.ua/cars/honda/pilot.jpg" class="img-thumbnail"
                                  itemprop="image"
-                                 onError="this.src='/resources/img/image404.jpg'">
+                                 onError="this.src='${pageContext.request.contextPath}/resources/img/image404.jpg'">
                         </td>
                     </tr>
                     </tbody>

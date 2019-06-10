@@ -32,7 +32,7 @@
                         <td>${car.model.name}</td>
                         <td>
                             <img src="${car.model.photo}" class="img-thumbnail" itemprop="image"
-                                 onError="this.src='/resources/img/image404.jpg'">
+                                 onError="this.src='${pageContext.request.contextPath}/resources/img/image404.jpg'">
                         </td>
                      </tr>
                 </c:forEach>

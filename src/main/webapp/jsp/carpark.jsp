@@ -27,11 +27,12 @@
                         <td>
                             <c:choose>
                                 <c:when test="${car.model.photo eq ''}">
-                                    <img src="/resources/img/image404.jpg" class="img-thumbnail" itemprop="image">
+                                    <img src="${pageContext.request.contextPath}/resources/img/image404.jpg"
+                                         class="img-thumbnail" itemprop="image">
                                 </c:when>
                                 <c:otherwise>
                                     <img src="${car.model.photo}" class="img-thumbnail" itemprop="image"
-                                         onError="this.src='/resources/img/image404.jpg'">
+                                    onError="this.src='${pageContext.request.contextPath}/resources/img/image404.jpg'">
                                 </c:otherwise>
                             </c:choose>
                         </td>
