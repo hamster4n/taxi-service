@@ -20,16 +20,10 @@
             <li class="nav-item">
                 <a class="nav-link" href="/besttaxi/profile"><fmt:message key="nav.profile"/></a>
             </li>
+            <li class="nav-item"><a class="nav-link" href="?sessionLocale=en"><fmt:message key="menu.en"/></a></li>
+            <li class="nav-item"><a class="nav-link" href="?sessionLocale=ru"><fmt:message key="menu.ru"/></a></li>
         </ul>
         <div class="navbar-text mr-3">${email}</div>
         <div class="navbar-text mr-3"><a href="/besttaxi/logout"><fmt:message key="nav.logout"/></a></div>
     </div>
 </nav>
-<div class="container-fluid bg-light">
-    <div id="navigation" class="float-right" >
-        <ul>
-            <li><a href="?sessionLocale=en"><fmt:message key="menu.en"/></a></li>
-            <li><a href="?sessionLocale=ru"><fmt:message key="menu.ru"/></a></li>
-        </ul>
-    </div>
-</div>
