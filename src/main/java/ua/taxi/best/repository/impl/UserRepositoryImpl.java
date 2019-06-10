@@ -37,7 +37,7 @@ public class UserRepositoryImpl implements UserRepository {
     private static final String UPDATE_TRAVELED_DISTANCE =
             "UPDATE users SET traveled_distance=? WHERE user_id = ?";
     private static final String UPDATE =
-            "UPDATE users SET name=?, password=?,credit_card=?,birthday=?, discount=?, loyalty=?" +
+            "UPDATE users SET name=?, password=?,credit_card=?,birthday=?, discount=?, loyalty=?, profile_bonus=?" +
                     " WHERE user_id = ?";
     private static final String FIND_BY_PAGINATION =
             "SELECT * FROM users " +
@@ -149,7 +149,8 @@ public class UserRepositoryImpl implements UserRepository {
             ps.setDate(4, java.sql.Date.valueOf(user.getBirthday()));
             ps.setInt(5, user.getDiscount());
             ps.setInt(6, user.getLoyalty());
-            ps.setLong(7, user.getId());
+            ps.setBoolean(7, user.getProfileBonus());
+            ps.setLong(8, user.getId());
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

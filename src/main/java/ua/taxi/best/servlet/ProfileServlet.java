@@ -37,6 +37,8 @@ public class ProfileServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = getUserFromJsp(req);
+        User userForProfile = userService.findByEmail(user.getEmail()).orElse(User.builder().build());
+        user.setProfileBonus(userForProfile.getProfileBonus());
         passwordValidation(req, resp, user.getPassword(), user.getEmail());
         user.setPassword(Encryptor.encrypt(user.getPassword()));
         userService.update(user);

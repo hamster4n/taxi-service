@@ -86,6 +86,6 @@ public class UserServiceImpl implements UserService {
     }
 
     private boolean isUserFillProfile(User user) {
-        return !"".equals(user.getName()) && !"".equals(user.getCreditCard()) && !user.getProfileBonus();
+        return !user.getProfileBonus() && !"".equals(user.getName()) && !"".equals(user.getCreditCard());
     }
 }
